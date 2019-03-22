@@ -1,13 +1,14 @@
 package edu.upc.dsa;
 
+import edu.upc.dsa.models.Autor;
 import edu.upc.dsa.models.Track;
 
 import java.util.LinkedList;
 import java.util.List;
 import org.apache.log4j.Logger;
 
-public class TracksManagerImpl implements TracksManager {
-    private static TracksManager instance;
+public class TracksManagerImpl implements edu.upc.dsa.TracksManager {
+    private static edu.upc.dsa.TracksManager instance;
     protected List<Track> tracks;
     final static Logger logger = Logger.getLogger(TracksManagerImpl.class);
 
@@ -15,7 +16,7 @@ public class TracksManagerImpl implements TracksManager {
         this.tracks = new LinkedList<>();
     }
 
-    public static TracksManager getInstance() {
+    public static edu.upc.dsa.TracksManager getInstance() {
         if (instance==null) instance = new TracksManagerImpl();
         return instance;
     }
@@ -33,6 +34,11 @@ public class TracksManagerImpl implements TracksManager {
         this.tracks.add (t);
         logger.info("new Track added");
         return t;
+    }
+
+    @Override
+    public Autor addAutor(Autor a) {
+        return null;
     }
 
     public Track addTrack(String title, String singer) {
@@ -54,8 +60,18 @@ public class TracksManagerImpl implements TracksManager {
         return null;
     }
 
-    public List<Track> findAll() {
+    @Override
+    public Autor getAutor(String id) {
+        return null;
+    }
+
+    public List<Track> findAllTracks() {
         return this.tracks;
+    }
+
+    @Override
+    public List<Autor> findAllAutores() {
+        return null;
     }
 
     @Override
